@@ -9,6 +9,9 @@ brew "zsh"
 brew "fzf"
 brew "tmux"
 brew "git"
+tap "homebrew/cask-fonts"
+cask "font-fantasque-sans-mono"
+brew "the_silver_searcher"
 
 # Other services
 brew "redis"
@@ -24,3 +27,6 @@ brew "libxslt"
 brew "libtool"
 brew "unixodbc"
 brew "openssl"
+
+# personal stuff
+cask "discord"
