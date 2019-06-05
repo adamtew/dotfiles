@@ -1,5 +1,5 @@
-# cask <application> -  will run `brew cask install`
-# brew <application> -  will run `brew install`
+# cask <application> - will run `brew cask install`
+# brew <application> - will run `brew install`
 
 # dev environmnet
 cask "iterm2"
