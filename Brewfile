@@ -14,6 +14,8 @@ cask "font-fantasque-sans-mono"
 brew "the_silver_searcher"
 tap "heroku/brew"
 brew "heroku"
+cask "postman"
+brew "vim"
 
 # Other services
 brew "redis"

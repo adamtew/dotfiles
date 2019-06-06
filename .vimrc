@@ -10,6 +10,7 @@ set smartcase " honor case if capital present
 set noswapfile " Disable .swp files
 set tabstop=2 " show existing tab with 2 spaces width
 set shiftwidth=2 " when indenting with '>', use 2 spaces width
+set clipboard=unnamed
 "set nofoldenable " Enables code folding
 "set foldmethod=syntax
 "set foldlevel=1
