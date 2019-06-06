@@ -108,3 +108,4 @@ source $ZSH/oh-my-zsh.sh
 . $HOME/.asdf/completions/asdf.bash
 
 # source $HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh*
+

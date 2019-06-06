@@ -16,6 +16,7 @@ tap "heroku/brew"
 brew "heroku"
 cask "postman"
 brew "vim"
+cask "sublime"
 
 # Other services
 brew "redis"
