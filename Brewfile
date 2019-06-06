@@ -12,6 +12,8 @@ brew "git"
 tap "homebrew/cask-fonts"
 cask "font-fantasque-sans-mono"
 brew "the_silver_searcher"
+tap "heroku/brew"
+brew "heroku"
 
 # Other services
 brew "redis"

@@ -1,3 +1,6 @@
+# General setting
+# Keyboard speed to max in the mac keyboard settings
+
 # brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew bundle # in this folder
@@ -19,3 +22,6 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 # Setting up git
 ln -s -f ~/git/adamtew/dotfiles/.gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
+
+# Setting up Heroku
+heroku login
