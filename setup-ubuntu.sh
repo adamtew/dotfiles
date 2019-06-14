@@ -17,3 +17,4 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 # Using gnome-terminal
 # Set the cursor shape to I-beam
 # After installing the fantasque font, set it up in preferences
+# Set the theme to be something other than the system theme such as solarized dark
