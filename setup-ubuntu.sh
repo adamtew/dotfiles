@@ -12,3 +12,7 @@ ln -s -f ~/git/adamtew/dotfiles/.vimrc ~/.vimrc
 ln -s -f ~/git/adamtew/dotfiles/.zshrc ~/.zshrc
 ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 
+# Non-code settings:
+#
+# Using gnome-terminal
+# Set the cursor shape to I-beam
