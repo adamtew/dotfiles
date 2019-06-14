@@ -11,3 +11,4 @@ sudo apt install -y curl
 ln -s -f ~/git/adamtew/dotfiles/.vimrc ~/.vimrc
 ln -s -f ~/git/adamtew/dotfiles/.zshrc ~/.zshrc
 ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
+

@@ -5,7 +5,9 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew bundle # in this folder
 
-# oh-my-zsh
+# #####################
+# ZSH (macOS or Ubuntu)
+# #####################
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Use fantasque-sans font in iterm2
