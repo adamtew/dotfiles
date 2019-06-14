@@ -2,6 +2,7 @@
 
 imap jj <Esc>
 syntax enable
+set backspace=indent,eol,start
 set incsearch
 set number
 set autoread " Auto-reload changed files
