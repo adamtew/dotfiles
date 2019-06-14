@@ -21,6 +21,7 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 
 
 # Setting up git
+# Setup personal information
 git confi --global user.name "name"
 git confi --global user.email "email"
 
@@ -37,3 +38,8 @@ cat ~/.ssh/id_rsa.pub | xclip -i -selection clipboard
 
 # Setting up Heroku
 heroku login
+
+# ############################
+# TMUX
+# ###########################
+# run ctl+x I to fetch and run plugins
