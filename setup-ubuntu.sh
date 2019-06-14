@@ -1,10 +1,6 @@
 sudo apt-get update -y
-sudo apt-get install -y git
-sudo apt-get install -y xterm
-sudo apt-get install -y build-essential
-sudo apt-get install -y vim
-sudo apt install -y copyq
-sudo apt install -y curl
+
+cat ubuntu-packages | xargs sudo apt -y install
 
 # Source all the dotfiles in the repo to the local version
 # Make sure to use absolute paths instead of relative ones
@@ -18,3 +14,9 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 # Set the cursor shape to I-beam
 # After installing the fantasque font, set it up in preferences
 # Set the theme to be something other than the system theme such as solarized dark
+
+
+# ###########
+# asdf
+# ###########
+
