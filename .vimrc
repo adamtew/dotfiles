@@ -23,6 +23,16 @@ nmap <Leader>e :e %:h<CR>
 " Plugins
 
 " plug
+" Automatically install plug if it doesn't exist
+" Note: This require curl
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" install plugs
 call plug#begin()
 Plug 'elixir-editors/vim-elixir' " Elixir support for vim
 Plug 'slashmili/alchemist.vim' " Elixir support for vim
