@@ -19,4 +19,4 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 # ###########
 # asdf
 # ###########
-
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2
