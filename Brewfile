@@ -31,7 +31,6 @@ brew "readline"
 brew "libxslt"
 brew "libtool"
 brew "unixodbc"
-brew "openssl"
 
 # personal stuff
 cask "discord"

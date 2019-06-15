@@ -6,4 +6,11 @@ curl
 tmux
 zsh
 fonts-fantasque-sans
-
+silversearcher-ag
+libssl-dev
+automake
+autoconf
+libncurses5-dev
+postgresql
+postgresql-contrib
+pgadmin3
