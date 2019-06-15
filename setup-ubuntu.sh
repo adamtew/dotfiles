@@ -19,6 +19,8 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 # After installing the fantasque font, set it up in preferences
 # Set the theme to be something other than the system theme such as solarized dark
 
+# This is a beautiful terminal theme to work with in gnome-terminal
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 
 # ###########
 # asdf
@@ -51,3 +53,7 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 grant all privileges on database postgres to postgres;
 sudo service postgresql restart
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
+
+
+# Tweaks
+# gnome-shell-extension-autohidetopbar

@@ -14,3 +14,5 @@ libncurses5-dev
 postgresql
 postgresql-contrib
 pgadmin3
+synapse
+gnome-shell-extension-autohidetopbar
