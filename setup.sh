@@ -24,8 +24,9 @@ ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 
 # Setting up git
 # Setup personal information
-git confi --global user.name "name"
-git confi --global user.email "email"
+git config --global user.name "name"
+git config --global user.email "email"
+git config --global core.editor "vim"
 
 #global ignore
 ln -s -f ~/git/adamtew/dotfiles/.gitignore ~/.gitignore
