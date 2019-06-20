@@ -18,6 +18,7 @@ cask "postman"
 brew "vim"
 cask "sublime-text"
 cask "dash"
+cask "gitkraken"
 
 # Other services
 brew "redis"
