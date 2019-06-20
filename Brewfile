@@ -17,6 +17,7 @@ brew "heroku"
 cask "postman"
 brew "vim"
 cask "sublime-text"
+cask "dash"
 
 # Other services
 brew "redis"
