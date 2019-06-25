@@ -18,3 +18,5 @@
 	c = commit
 	cm = commit -m
 	ca = commit --amend
+	#
+	s = status
