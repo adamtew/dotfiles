@@ -12,13 +12,13 @@ set noswapfile " Disable .swp files
 set tabstop=2 " show existing tab with 2 spaces width
 set shiftwidth=2 " when indenting with '>', use 2 spaces width
 set clipboard=unnamed
-"set nofoldenable " Enables code folding
+" filetype indent plugin on
+set nofoldenable " Enables code folding
 "set foldmethod=syntax
 "set foldlevel=1
 
 let mapleader = ","
 nmap <Leader>e :e %:h<CR>
-
 
 " Plugins
 
@@ -39,7 +39,49 @@ Plug 'slashmili/alchemist.vim' " Elixir support for vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim' " fzf
 Plug 'morhetz/gruvbox' " gruvbox colorscheme
+Plug 'godlygeek/tabular' " used with vim-markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/goyo.vim' " To make distractions go away
 call plug#end()
+
+" Goyo
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  " Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+  " Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+map <Leader>q :Goyo<CR>
+let g:goyo_height = 100
+let g:goyo_width = 100
+
+" vim-markdown
+" Folding
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
+set conceallevel=2
+let g:vim_markdown_fenced_languages = ['elixir=ex']
 
 " Theme
 set termguicolors
