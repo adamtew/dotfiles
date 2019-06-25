@@ -3,3 +3,12 @@
 	email = adamjtew@gmail.com
 [core]
 	excludesfile = /Users/adamtew/.gitignore
+
+[alias]
+	a = add --all
+	ai = add -i
+	#
+	b = branch
+	#
+	c = commit
+	cm = commit -m
