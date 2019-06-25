@@ -1,5 +1,20 @@
 [user]
 	name = Adam
 	email = adamjtew@gmail.com
+	usename = adamtew
 [core]
-	excludesfile = /Users/adamtew/.gitignore
+	editor = vim
+	excludesfile = ~/.gitignore
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	a = add --all
+	ai = add -i
+	#
+	b = branch
+	#
+	c = commit
+	cm = commit -m
+	ca = commit --amend
