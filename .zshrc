@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 
 . $HOME/.asdf/completions/asdf.bash
 
-bindkey '^M' autosuggest-accept
+bindkey '^[;' autosuggest-accept
 
 # source $HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh*
 
