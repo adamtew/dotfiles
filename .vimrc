@@ -10,6 +10,8 @@ set ignorecase " ignore case in search
 set smartcase " honor case if capital present
 set noswapfile " Disable .swp files
 set tabstop=2 " show existing tab with 2 spaces width
+set shiftwidth=2
+set expandtab
 set shiftwidth=2 " when indenting with '>', use 2 spaces width
 set clipboard=unnamed
 " filetype indent plugin on
@@ -42,6 +44,8 @@ Plug 'morhetz/gruvbox' " gruvbox colorscheme
 Plug 'godlygeek/tabular' " used with vim-markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim' " To make distractions go away
+Plug 'mxw/vim-jsx' " Jsx support for vim
+Plug 'leafgarland/typescript-vim' " Typescript support
 call plug#end()
 
 " Goyo
@@ -81,7 +85,7 @@ let g:goyo_width = 100
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 set conceallevel=2
-let g:vim_markdown_fenced_languages = ['elixir=ex']
+let g:vim_markdown_fenced_languages = ['elixir', 'elixir=ex']
 
 " Theme
 set termguicolors

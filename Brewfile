@@ -19,6 +19,8 @@ brew "vim"
 cask "sublime-text"
 cask "dash"
 cask "gitkraken"
+cask "visual-studio-code"
+cask "graphiql"
 
 # Other services
 brew "redis"

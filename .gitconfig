@@ -20,3 +20,5 @@
 	ca = commit --amend
 	#
 	s = status
+	#
+	d = diff
