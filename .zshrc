@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git heroku)
+plugins=(git heroku zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.bashrc
@@ -107,5 +107,8 @@ source $ZSH/oh-my-zsh.sh
 
 . $HOME/.asdf/completions/asdf.bash
 
+bindkey '^[;' autosuggest-accept
+
 # source $HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh*
 
+# if macOS - source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

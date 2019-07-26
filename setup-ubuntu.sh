@@ -6,6 +6,9 @@ cat ubuntu-packages | xargs sudo apt -y install
 snap install --classic heroku
 snap install postman
 snap install --classic slack
+
+# install dbeaver as a database client
+
 # Source all the dotfiles in the repo to the local version
 # Make sure to use absolute paths instead of relative ones
 ln -s -f ~/git/adamtew/dotfiles/.vimrc ~/.vimrc
@@ -57,3 +60,4 @@ sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
 
 # Tweaks
 # gnome-shell-extension-autohidetopbar
+
