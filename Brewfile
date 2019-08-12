@@ -21,6 +21,22 @@ cask "dash"
 cask "gitkraken"
 cask "visual-studio-code"
 cask "graphiql"
+brew "yarn"
+# cask "flycut"
+
+
+# react native
+brew "watchman"
+tap "AdoptOpenJDK/openjdk"
+cask "adoptopenjdk8"
+cask "react-native-debugger"
+tap "wix/brew"
+brew "applesimutils"
+
+# Ruby
+# brew "openssl"
+# brew "libyaml"
+brew "libffi"
 
 # Other services
 brew "redis"

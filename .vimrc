@@ -46,6 +46,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim' " To make distractions go away
 Plug 'mxw/vim-jsx' " Jsx support for vim
 Plug 'leafgarland/typescript-vim' " Typescript support
+" Plug 'chrisbra/csv.vim'
 call plug#end()
 
 " Goyo
