@@ -24,7 +24,6 @@ cask "graphiql"
 brew "yarn"
 # cask "flycut"
 
-
 # react native
 brew "watchman"
 tap "AdoptOpenJDK/openjdk"
@@ -54,3 +53,4 @@ brew "unixodbc"
 
 # personal stuff
 cask "discord"
+cask "pandora"

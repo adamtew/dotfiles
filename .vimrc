@@ -22,6 +22,11 @@ set nofoldenable " Enables code folding
 let mapleader = ","
 nmap <Leader>e :e %:h<CR>
 
+" Copy the filename
+nmap <Leader>cs :let @*=expand("%")<CR>
+" Copy the filename plus it's full path
+nmap <Leader>cl :let @*=expand("%:p")<CR>
+
 " Plugins
 
 " plug
@@ -46,6 +51,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim' " To make distractions go away
 Plug 'mxw/vim-jsx' " Jsx support for vim
 Plug 'leafgarland/typescript-vim' " Typescript support
+Plug 'terryma/vim-multiple-cursors' " Multicursor
+Plug 'scrooloose/nerdcommenter' " getting comments to work
 " Plug 'chrisbra/csv.vim'
 call plug#end()
 
