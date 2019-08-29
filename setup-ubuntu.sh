@@ -1,5 +1,8 @@
 sudo apt-get update -y
 
+# point to mirrors
+add-apt-repository ppa:mmstick76/alacritty
+
 cat ubuntu-packages | xargs sudo apt -y install
 
 # Snap packages
