@@ -41,6 +41,16 @@ endif
 
 " install plugs
 call plug#begin()
+
+" Deoplete for autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'elixir-editors/vim-elixir' " Elixir support for vim
 Plug 'slashmili/alchemist.vim' " Elixir support for vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
@@ -55,6 +65,14 @@ Plug 'terryma/vim-multiple-cursors' " Multicursor
 Plug 'scrooloose/nerdcommenter' " getting comments to work
 " Plug 'chrisbra/csv.vim'
 call plug#end()
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('smart_case', v:true)
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
 " Goyo
 function! s:goyo_enter()

@@ -23,6 +23,7 @@ cask "visual-studio-code"
 cask "graphiql"
 brew "yarn"
 # cask "flycut"
+cask "alacritty"
 
 # react native
 brew "watchman"
