@@ -63,6 +63,7 @@ Plug 'mxw/vim-jsx' " Jsx support for vim
 Plug 'leafgarland/typescript-vim' " Typescript support
 Plug 'terryma/vim-multiple-cursors' " Multicursor
 Plug 'scrooloose/nerdcommenter' " getting comments to work
+Plug 'ludovicchabant/vim-gutentags'
 " Plug 'chrisbra/csv.vim'
 call plug#end()
 
