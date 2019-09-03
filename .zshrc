@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git heroku zsh-autosuggestions)
+plugins=(git heroku zsh-autosuggestions docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.bashrc
