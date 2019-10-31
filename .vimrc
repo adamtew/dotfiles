@@ -71,6 +71,10 @@ Plug 'francoiscabrol/ranger.vim'
 " Plug 'chrisbra/csv.vim'
 call plug#end()
 
+" Ranger
+let g:NERDTreeHijackNetrw = 0 // add this line if you use NERDTree
+let g:ranger_replace_netrw = 1 // open ranger when vim open a directory
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('smart_case', v:true)

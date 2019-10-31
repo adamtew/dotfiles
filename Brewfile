@@ -24,6 +24,7 @@ cask "graphiql"
 brew "yarn"
 # cask "flycut"
 cask "alacritty"
+brew "ranger"
 
 # react native
 brew "watchman"
