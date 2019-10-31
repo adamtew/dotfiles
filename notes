@@ -1,0 +1,8 @@
+tmux commands:
+sessions:
+
+mod = b
+
+mod+( - previous session
+mod+) - next session
+mod+s - session list

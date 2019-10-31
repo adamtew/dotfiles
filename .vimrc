@@ -18,6 +18,7 @@ set clipboard=unnamed
 set nofoldenable " Enables code folding
 "set foldmethod=syntax
 "set foldlevel=1
+autocmd InsertEnter,InsertLeave * set cul!
 
 let mapleader = ","
 nmap <Leader>e :e %:h<CR>
@@ -66,6 +67,7 @@ Plug 'scrooloose/nerdcommenter' " getting comments to work
 Plug 'ludovicchabant/vim-gutentags' " tags for goto definition
 Plug 'sheerun/vim-polyglot' " syntax (and other features) for all the languages
 Plug 'dense-analysis/ale' " linting
+Plug 'francoiscabrol/ranger.vim'
 " Plug 'chrisbra/csv.vim'
 call plug#end()
 
