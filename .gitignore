@@ -38,3 +38,6 @@ Icon?
 Thumbs.db
 
 *.lock
+
+# ctags file
+tags

@@ -25,6 +25,8 @@ brew "yarn"
 # cask "flycut"
 cask "alacritty"
 brew "ranger"
+brew "highlight"
+brew "ctags"
 
 # react native
 brew "watchman"
