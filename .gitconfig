@@ -3,7 +3,7 @@
 	email = adamjtew@gmail.com
 	usename = adamtew
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 [diff]
 	tool = vimdiff

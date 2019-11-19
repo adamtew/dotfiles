@@ -1,3 +1,7 @@
+###################################
+# Tmux 
+###################################
+
 tmux commands:
 sessions:
 
@@ -6,3 +10,34 @@ mod = b
 mod+( - previous session
 mod+) - next session
 mod+s - session list
+
+
+###################################
+# Vim
+###################################
+
+## Motion
+
+## Abbreviations vs snippets
+
+## Text blocks 
+
+## Sessions
+
+* shada file (shared data file)
+
+## Folding
+
+## Modes
+
+* :terminal
+  * Exit with <C-\><C-N>
+
+* :normal
+* :insert
+
+## Marks and Jumps
+
+## Quickfix window
+
+## Status Line :statusline

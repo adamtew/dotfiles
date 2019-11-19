@@ -27,6 +27,7 @@ cask "alacritty"
 brew "ranger"
 brew "highlight"
 brew "ctags"
+cask "neovim"
 
 # react native
 brew "watchman"

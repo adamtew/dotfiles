@@ -13,24 +13,36 @@ set tabstop=2 " show existing tab with 2 spaces width
 set shiftwidth=2
 set expandtab
 set shiftwidth=2 " when indenting with '>', use 2 spaces width
-set clipboard=unnamed
+:set mouse=a
+" set clipboard=unnamed
+set clipboard=unnamedplus
 " filetype indent plugin on
 set nofoldenable " Enables code folding
 set foldmethod=syntax
 "set foldlevel=1
-autocmd InsertEnter,InsertLeave * set cul!
+" autocmd InsertEnter,InsertLeave * set cul!
+set cul
 set tags=tags
+set hidden
+set shada='1000,f1,<500 " The shared data
 
 let mapleader = ","
 "nmap <Leader>e :e %:h<CR>
 " nmap <Leader>e :Ranger<CR>
-map <leader>v :e ~/.vimrc<CR>
-map <leader>s :source ~/.vimrc<CR>
+map <leader>v :tabf ~/.vimrc<CR>
+map <leader>s :source $MYVIMRC<CR>
 
 " Copy the filename
 nmap <Leader>cs :let @*=expand("%")<CR>
 " Copy the filename plus it's full path
 nmap <Leader>cl :let @*=expand("%:p")<CR>
+
+" Abbreviations
+" :iabbrev csl console.log(
+autocmd FileType javascript iabbrev <buffer> csl console.log()<left>
+
+" Autocommands
+autocmd TermOpen * startinsert
 
 " Plugins
 
@@ -49,12 +61,13 @@ call plug#begin()
 
 " Deoplete for autocompletion
 if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  "Plug 'Shougo/deoplete.nvim'
-  "Plug 'roxma/nvim-yarp'
-  "Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+let g:deoplete#enable_at_startup = 1
 
 Plug 'elixir-editors/vim-elixir' " Elixir support for vim
 Plug 'slashmili/alchemist.vim' " Elixir support for vim
@@ -77,6 +90,17 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive' " git management
 " Plug 'chrisbra/csv.vim'
 call plug#end()
+
+"gutentags
+" let g:gutentags_ctags_exclude = [
+"       \ '*.git', '*.svg', '*.hg',
+"       \ '_build', 'deps', 'node_modules'
+" ]
+" let g:gutentags_project_root = ['.git']
+" let g:gutentags_generate_on_write = 1
+" let g:gutentags_generate_on_missing = 1
+" let g:gutentags_generate_on_write = 1
+" let g:gutentags_generate_on_empty_buffer = 0
 
 " Ranger
 "let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
@@ -136,6 +160,8 @@ set background=dark    " Setting dark mode
 
 " alchemist
 " let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+" autocmd BufWritePost *.exs,*.ex silent :!mix format %
+
 
 " """"
 " NerdCommenter
@@ -151,14 +177,26 @@ let g:NERDTrimTrailingWhitespace = 1
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l ""'
 " Default options are --nogroup --column --color
 let s:ag_options = ' --hidden '
-noremap <C-i>i :Files<CR>
+" noremap <C-i>i :Files<CR>
 noremap <C-p> :Ag<CR>
-noremap <leader>q :Buffers<CR>
-noremap <leader>g :GFiles<CR>
+noremap <leader>ab :Buffers<CR>
+" noremap <leader>ab :Buffers<CR>
+noremap <leader>af :GFiles<CR>
 " noremap <leader>b :Buffers<CR>
-noremap <leader>h :History<CR>
+noremap <leader>ah :History<CR>
+noremap <leader>a/ :History/<CR>
+noremap <leader>ac :Commits<CR>
+noremap <leader>at :Tags<CR>
+noremap <leader>aT :BTags<CR>
+noremap <leader>aq :Helptags<CR>
+noremap <leader>al :Lines<CR>
+noremap <leader>aL :BLines<CR>
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+" let g:fzf_layout = { 'down': '~40%' } " default
+let g:fzf_layout = { 'down': '~60%' }
+let g:fzf_tags_command = 
+      \ 'ctags -R . --exclude=.git --exclude=deps --exclude=_build --exclude=node_modules'
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
