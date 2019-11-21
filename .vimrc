@@ -24,7 +24,9 @@ set foldmethod=syntax
 set cul
 set tags=tags
 set hidden
-set shada='1000,f1,<500 " The shared data
+if has('nvim')
+  set shada='1000,f1,<500 " The shared data
+endif
 
 let mapleader = ","
 "nmap <Leader>e :e %:h<CR>
@@ -40,6 +42,7 @@ nmap <Leader>cl :let @*=expand("%:p")<CR>
 " Abbreviations
 " :iabbrev csl console.log(
 autocmd FileType javascript iabbrev <buffer> csl console.log()<left>
+autocmd FileType elixir iabbrev <buffer> pp require IEx; IEx.pry()
 
 " Autocommands
 autocmd TermOpen * startinsert
@@ -191,12 +194,12 @@ noremap <leader>aT :BTags<CR>
 noremap <leader>aq :Helptags<CR>
 noremap <leader>al :Lines<CR>
 noremap <leader>aL :BLines<CR>
+nnoremap <leader>aw :call fzf#vim#tags('^' . expand('<cword>'), fzf#vim#with_preview({'options': '--exact --select-1 --exit-0 +i'}))<CR>
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 " let g:fzf_layout = { 'down': '~40%' } " default
 let g:fzf_layout = { 'down': '~60%' }
-let g:fzf_tags_command = 
-      \ 'ctags -R . --exclude=.git --exclude=deps --exclude=_build --exclude=node_modules'
+let g:fzf_tags_command = 'ctags -R --exclude=deps --exclude=_build --exclude=node_modules' 
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -223,6 +226,7 @@ let g:fzf_colors =
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+command! -bang -nargs=* Tags call fzf#vim#tags(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
