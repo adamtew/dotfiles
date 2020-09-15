@@ -28,6 +28,7 @@ brew "ranger"
 brew "highlight"
 brew "ctags"
 cask "neovim"
+cask "basecamp"
 
 # react native
 brew "watchman"

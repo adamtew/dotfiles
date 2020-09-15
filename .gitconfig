@@ -22,3 +22,5 @@
 	s = status
 	#
 	d = diff
+  #
+  gco = git checkout

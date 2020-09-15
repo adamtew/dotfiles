@@ -41,3 +41,7 @@ Thumbs.db
 
 # ctags file
 tags
+
+# elixirls plugin in vscode
+.elixir_ls
+

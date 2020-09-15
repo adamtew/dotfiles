@@ -3,14 +3,45 @@
 ###################################
 
 tmux commands:
-sessions:
 
 mod = b
+
+sessions:
 
 mod+( - previous session
 mod+) - next session
 mod+s - session list
 
+windows:
+
+mod+n - next window
+mod+p - prev window
+mod+w - list windows
+mod+& - kill currrent window
+mod+, - rename window
+mod+z - maxiimize focused window 
+
+panes:
+
+mod+" - Horizontally split
+mod+% - Vertically split
+mod+k - go up one pane
+mod+j - go down one pane
+mod+h - go left one pane
+mod+l - go right one pane
+mod+x - kill pane
+
+
+Random:
+
+mod+t - show the time
+shift click with a mouse to select text for copying
+mod+[ - enter scroll mode
+
+Scroll mode:
+
+ctl+y - scroll up
+ctl+e - scroll down
 
 ###################################
 # Vim
@@ -75,3 +106,30 @@ mod+s - session list
 :t - tail of file name
 :r - root of file name
 :e - extension of file name
+
+
+### kafka
+
+Using dynamic environments, we can see what messages are coming off of a topic
+
+shell into the `kafka-connect` pod and run the command 
+
+kafka-console-consumer --topic anakin.location_product.v1.json --bootstrap-server kafka:9092 --from-beginning
+
+### Docker
+
+
+docker ps # list docker processes
+docker ps —format ‘{{.Names}}’ # list just the names
+docker ps -q # list  all the running containers ids
+docker ps —help # very  helpful, list  different switches  for docker ps
+docker kill
+docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Command}}” #  Example of formatting the output of docker with multiple  fields
+docker rm # remove containers
+docker kill # kill containers
+docker ps --format "table {{.Names}}\t{{.ID}}" --filter name="halberd" --filter status=running # shows me that there are two halberds running…
+
+### Dynamic Environment stuff
+# dyn-env
+
+kafka port - kafka.default.svc.cluster.local

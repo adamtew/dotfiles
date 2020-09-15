@@ -121,3 +121,20 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 alias ctags="`brew --prefix`/bin/ctags"
+alias dc="docker-compose"
+
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/git/adamtew/dotfiles/scripts:$PATH
+[ -f ~/git/adamtew/dotfiles/scripts/devp.sh ] && source ~/git/adamtew/dotfiles/scripts/devp.sh && compdef _devp devp
+[ -f ~/git/adamtew/dotfiles/scripts/devc.sh ] && source ~/git/adamtew/dotfiles/scripts/devc.sh && compdef _devc devc
+
+
+export GIT_MERGE_AUTOEDIT=no
+
+
+export TILLER_NAMESPACE=default
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+source ~/.bashrc.d/asdf

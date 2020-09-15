@@ -16,6 +16,19 @@ set shiftwidth=2 " when indenting with '>', use 2 spaces width
 :set mouse=a
 " set clipboard=unnamed
 set clipboard=unnamedplus
+" Pasting
+" https://stackoverflow.com/questions/2514445/turning-off-auto-indent-when-pasting-text-into-vim/38258720#38258720
+" let &t_SI .= "\<Esc>[?2004h"
+" let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 " filetype indent plugin on
 set nofoldenable " Enables code folding
 set foldmethod=syntax
@@ -33,6 +46,8 @@ let mapleader = ","
 " nmap <Leader>e :Ranger<CR>
 map <leader>v :tabf ~/.vimrc<CR>
 map <leader>s :source $MYVIMRC<CR>
+" Remove the highlights
+map <leader>q :noh<CR> 
 
 " Copy the filename
 nmap <Leader>cs :let @*=expand("%")<CR>
@@ -42,7 +57,7 @@ nmap <Leader>cl :let @*=expand("%:p")<CR>
 " Abbreviations
 " :iabbrev csl console.log(
 autocmd FileType javascript iabbrev <buffer> csl console.log()<left>
-autocmd FileType elixir iabbrev <buffer> pp require IEx; IEx.pry()
+autocmd FileType elixir iabbrev <buffer> pry require IEx; IEx.pry()
 
 " Autocommands
 autocmd TermOpen * startinsert
@@ -63,14 +78,13 @@ endif
 call plug#begin()
 
 " Deoplete for autocompletion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 Plug 'elixir-editors/vim-elixir' " Elixir support for vim
 Plug 'slashmili/alchemist.vim' " Elixir support for vim
@@ -89,7 +103,7 @@ Plug 'scrooloose/nerdcommenter' " getting comments to work
 " Plug 'ludovicchabant/vim-gutentags' " tags for goto definition
 Plug 'sheerun/vim-polyglot' " syntax (and other features) for all the languages
 Plug 'dense-analysis/ale' " linting
-Plug 'francoiscabrol/ranger.vim'
+" Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive' " git management
 " Plug 'chrisbra/csv.vim'
 call plug#end()
@@ -107,9 +121,13 @@ call plug#end()
 
 " Ranger
 "let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+" let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 
 " deoplete
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
+" maximum candidate window length
+" call deoplete#custom#source('_', 'max_menu_width', 80)
 "let g:deoplete#enable_at_startup = 1
 "call deoplete#custom#option('smart_case', v:true)
 "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
