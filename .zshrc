@@ -128,7 +128,6 @@ export PATH=$HOME/git/adamtew/dotfiles/scripts:$PATH
 [ -f ~/git/adamtew/dotfiles/scripts/devp.sh ] && source ~/git/adamtew/dotfiles/scripts/devp.sh && compdef _devp devp
 [ -f ~/git/adamtew/dotfiles/scripts/devc.sh ] && source ~/git/adamtew/dotfiles/scripts/devc.sh && compdef _devc devc
 
-
 export GIT_MERGE_AUTOEDIT=no
 
 

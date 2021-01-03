@@ -60,3 +60,4 @@ brew "unixodbc"
 # personal stuff
 cask "discord"
 cask "pandora"
+cask "karabiner-elements"

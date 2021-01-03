@@ -16,6 +16,7 @@ set shiftwidth=2 " when indenting with '>', use 2 spaces width
 :set mouse=a
 " set clipboard=unnamed
 set clipboard=unnamedplus
+set colorcolumn=80
 " Pasting
 " https://stackoverflow.com/questions/2514445/turning-off-auto-indent-when-pasting-text-into-vim/38258720#38258720
 " let &t_SI .= "\<Esc>[?2004h"
@@ -44,20 +45,34 @@ endif
 let mapleader = ","
 "nmap <Leader>e :e %:h<CR>
 " nmap <Leader>e :Ranger<CR>
+map <leader>T :Test<CR>
+map <leader>F :Format<CR>
+map <leader>f :e %:h<CR>
 map <leader>v :tabf ~/.vimrc<CR>
 map <leader>s :source $MYVIMRC<CR>
 " Remove the highlights
 map <leader>q :noh<CR> 
 
-" Copy the filename
-nmap <Leader>cs :let @*=expand("%")<CR>
-" Copy the filename plus it's full path
-nmap <Leader>cl :let @*=expand("%:p")<CR>
+" Copy fiel name directory/name
+nmap <Leader>yp :let @+=expand('%:p')<CR>
+" Copy file name 'tail'
+nmap <Leader>yt :let @+=expand('%:t')<CR>
+
+map <leader>gb :Git blame<CR>
+
 
 " Abbreviations
 " :iabbrev csl console.log(
 autocmd FileType javascript iabbrev <buffer> csl console.log()<left>
+" autocmd FileType elixir iabbrev <buffer> iop IO.inspect()
 autocmd FileType elixir iabbrev <buffer> pry require IEx; IEx.pry()
+
+"""""""
+" Commands
+"""""""
+command! Format !mix format %
+command! Test !mix test %
+command! FormatJSON %!python -m json.tool
 
 " Autocommands
 autocmd TermOpen * startinsert
@@ -86,6 +101,7 @@ call plug#begin()
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
 
+" using the elixir-ls version of elixir support https://www.mitchellhanberg.com/post/2018/10/18/how-to-use-elixir-ls-with-vim/
 Plug 'elixir-editors/vim-elixir' " Elixir support for vim
 Plug 'slashmili/alchemist.vim' " Elixir support for vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
@@ -259,3 +275,4 @@ command! -bang -nargs=? -complete=dir Files
 
 command! -bang -nargs=? -complete=dir Buffers 
   \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+
