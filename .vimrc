@@ -53,7 +53,7 @@ map <leader>s :source $MYVIMRC<CR>
 " Remove the highlights
 map <leader>q :noh<CR> 
 
-" Copy fiel name directory/name
+" Copy file name directory/name
 nmap <Leader>yp :let @+=expand('%:p')<CR>
 " Copy file name 'tail'
 nmap <Leader>yt :let @+=expand('%:t')<CR>
