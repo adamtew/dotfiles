@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 # ZSH_THEME="bullet-train"
 
 # Set list of themes to pick from when loading at random
@@ -101,39 +101,46 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# . $HOME/.asdf/asdf.sh
+
+# . $HOME/.asdf/completions/asdf.bash
+
+bindkey '^[;' autosuggest-accept
+
+source $HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh*
+
+# if macOS - source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Setting up react native android support
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# alias ctags="`brew --prefix`/bin/ctags"
+# alias dc="docker-compose"
+
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/git/adamtew/dotfiles/scripts:$PATH
+# [ -f ~/git/adamtew/dotfiles/scripts/devp.sh ] && source ~/git/adamtew/dotfiles/scripts/devp.sh && compdef _devp devp
+# [ -f ~/git/adamtew/dotfiles/scripts/devc.sh ] && source ~/git/adamtew/dotfiles/scripts/devc.sh && compdef _devc devc
+
+export GIT_MERGE_AUTOEDIT=no
+
+
+# export TILLER_NAMESPACE=default
+# export ERL_AFLAGS="-kernel shell_history enabled"
+
+
+# export PATH=/usr/local/opt/python/libexec/bin:$PATH
+# source ~/.bashrc.d/asdf
+# export PATH=$PATH
 
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
 
-bindkey '^[;' autosuggest-accept
-
-# source $HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh*
-
-# if macOS - source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Setting up react native android support
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-alias ctags="`brew --prefix`/bin/ctags"
-alias dc="docker-compose"
-
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/git/adamtew/dotfiles/scripts:$PATH
-[ -f ~/git/adamtew/dotfiles/scripts/devp.sh ] && source ~/git/adamtew/dotfiles/scripts/devp.sh && compdef _devp devp
-[ -f ~/git/adamtew/dotfiles/scripts/devc.sh ] && source ~/git/adamtew/dotfiles/scripts/devc.sh && compdef _devc devc
-
-export GIT_MERGE_AUTOEDIT=no
-
-
-export TILLER_NAMESPACE=default
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
-source ~/.bashrc.d/asdf
+export PATH=~/Downloads/bin:$PATH

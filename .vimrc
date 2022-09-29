@@ -17,6 +17,12 @@ set shiftwidth=2 " when indenting with '>', use 2 spaces width
 " set clipboard=unnamed
 set clipboard=unnamedplus
 set colorcolumn=80
+set undofile " so undoing is persisted to a file
+set undolevels=1000   " Maximum number of changes that can be undone
+set undoreload=10000  " Maximum number lines to save for undo on a buffer reload
+set relativenumber
+set hlsearch " Highlights searched words
+set showmatch
 " Pasting
 " https://stackoverflow.com/questions/2514445/turning-off-auto-indent-when-pasting-text-into-vim/38258720#38258720
 " let &t_SI .= "\<Esc>[?2004h"
@@ -53,7 +59,7 @@ map <leader>s :source $MYVIMRC<CR>
 " Remove the highlights
 map <leader>q :noh<CR> 
 
-" Copy fiel name directory/name
+" Copy file name directory/name
 nmap <Leader>yp :let @+=expand('%:p')<CR>
 " Copy file name 'tail'
 nmap <Leader>yt :let @+=expand('%:t')<CR>
@@ -75,7 +81,7 @@ command! Test !mix test %
 command! FormatJSON %!python -m json.tool
 
 " Autocommands
-autocmd TermOpen * startinsert
+" autocmd TermOpen * startinsert
 
 " Plugins
 
@@ -122,6 +128,8 @@ Plug 'dense-analysis/ale' " linting
 " Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-fugitive' " git management
 " Plug 'chrisbra/csv.vim'
+Plug 'OmniSharp/omnisharp-vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "gutentags
@@ -216,9 +224,10 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l ""'
 let s:ag_options = ' --hidden '
 " noremap <C-i>i :Files<CR>
 noremap <C-p> :Ag<CR>
+noremap <leader>af :Files<CR>
 noremap <leader>ab :Buffers<CR>
 " noremap <leader>ab :Buffers<CR>
-noremap <leader>af :GFiles<CR>
+noremap <leader>agf :GFiles<CR>
 " noremap <leader>b :Buffers<CR>
 noremap <leader>ah :History<CR>
 noremap <leader>a/ :History/<CR>
