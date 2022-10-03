@@ -55,7 +55,7 @@ map <leader>T :Test<CR>
 map <leader>F :Format<CR>
 map <leader>f :e %:h<CR>
 map <leader>v :tabf ~/.vimrc<CR>
-map <leader>s :source $MYVIMRC<CR>
+map <leader>S :source $MYVIMRC<CR>
 " Remove the highlights
 map <leader>q :noh<CR> 
 
@@ -131,6 +131,17 @@ Plug 'tpope/vim-fugitive' " git management
 Plug 'OmniSharp/omnisharp-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+""""""""""""""" Go """""""""""""""
+
+" vim-go (using native package manager in  ~/.vim/pack/plugins/start/vim-go)
+" au FileType go nmap <leader>r <Plug>(go-run)
+" au FileType go nmap <leader>b <Plug>(go-build)
+" au FileType go nmap <leader>t <Plug>(go-test)
+" au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+" au FileType go nmap <Leader>e <Plug>(go-rename)
+" au FileType go nmap <Leader>s <Plug>(go-implements)
+" au FileType go nmap <Leader>i <Plug>(go-info)
 
 "gutentags
 " let g:gutentags_ctags_exclude = [

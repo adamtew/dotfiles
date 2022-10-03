@@ -12,6 +12,12 @@ vim -c ":helptags ALL" -c ":q"
 vim -c ":GoInstallBinaries" -c ":q"
 ```
 
+## Tmux
+
+This uses tmux plugin manager ([TPM](https://github.com/tmux-plugins/tpm)).
+
+Install plugins with `<prefix> I` (capital __I__)
+
 ## Arch or Manjaro
 
 ```bash
