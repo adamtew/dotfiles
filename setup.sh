@@ -24,6 +24,7 @@ ln -s -f ~/git/adamtew/dotfiles/.vimrc ~/.vimrc
 ln -s -f ~/git/adamtew/dotfiles/.zshrc ~/.zshrc
 ln -s -f ~/git/adamtew/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s -f ~/git/adamtew/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s -f ~/git/adamtew/dotfiles/.gitconfig ~/.gitconfig
 
 # Setting up git
 # Setup personal information

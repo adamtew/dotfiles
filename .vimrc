@@ -96,8 +96,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " install plugs
-call plug#begin()
-
+call plug#begin() " PlugInstall
 " Deoplete for autocompletion
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -130,9 +129,12 @@ Plug 'tpope/vim-fugitive' " git management
 " Plug 'chrisbra/csv.vim'
 Plug 'OmniSharp/omnisharp-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'madox2/vim-ai', { 'do': './install.sh' }
+Plug 'vim-scripts/svg.vim'
 call plug#end()
 
 """"""""""""""" Go """""""""""""""
+
 
 " vim-go (using native package manager in  ~/.vim/pack/plugins/start/vim-go)
 " au FileType go nmap <leader>r <Plug>(go-run)
@@ -254,6 +256,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " let g:fzf_layout = { 'down': '~40%' } " default
 let g:fzf_layout = { 'down': '~60%' }
 let g:fzf_tags_command = 'ctags -R --exclude=deps --exclude=_build --exclude=node_modules' 
+
+:call fzf#run({'source': 'find .', 'options': '--exclude=*.log*', 'sink': 'e'})
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
