@@ -257,7 +257,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_layout = { 'down': '~60%' }
 let g:fzf_tags_command = 'ctags -R --exclude=deps --exclude=_build --exclude=node_modules' 
 
-# :call fzf#run({'source': 'find .', 'options': '--exclude=*.log*', 'sink': 'e'})
+" :call fzf#run({'source': 'find .', 'options': '--exclude=*.log*', 'sink': 'e'})
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
