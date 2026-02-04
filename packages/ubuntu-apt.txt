@@ -1,0 +1,18 @@
+# Core tools
+git
+vim
+tmux
+zsh
+stow
+curl
+wget
+
+# Development
+build-essential
+fzf
+silversearcher-ag
+
+# Utilities
+ca-certificates
+gnupg
+xclip

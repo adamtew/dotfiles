@@ -1,5 +1,60 @@
 # dotfiles
 
+## Quick Start
+
+Bootstrap a new machine with a single command:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/adamtew/dotfiles/master/bootstrap.sh)
+```
+
+### What it installs
+
+- **Packages**: git, vim, tmux, zsh, stow, fzf, ag, and more
+- **Shell**: Oh-My-Zsh with autosuggestions and syntax-highlighting plugins
+- **Configs**: vim, zsh, tmux, git, alacritty (via GNU stow)
+- **SSH**: Generates ed25519 key and optionally uploads to GitHub
+- **Tools**: GitHub CLI, Claude CLI
+
+### Supported platforms
+
+- macOS
+- Debian / Ubuntu
+
+### Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DOTFILES_DIR` | `~/dotfiles` | Where to clone the dotfiles |
+| `BRANCH` | `master` | Git branch to use |
+
+Example with custom directory:
+```bash
+DOTFILES_DIR=~/my-dotfiles bash <(curl -fsSL https://raw.githubusercontent.com/adamtew/dotfiles/master/bootstrap.sh)
+```
+
+### Running locally
+
+If already cloned, run the installer directly:
+
+```bash
+./install.sh
+```
+
+Options:
+- `--skip-packages` - Skip package installation
+- `--skip-docker` - Skip Docker installation
+- `--skip-ssh` - Skip SSH key setup
+- `--skip-claude` - Skip Claude CLI installation
+
+## Post-install
+
+1. **Vim plugins**: Run `:PlugInstall` in vim
+2. **Tmux plugins**: Press `<prefix> I` (capital I)
+3. **New shell**: Run `exec zsh` or log out and back in
+
+---
+
 ## Vim
 
 Started using native packages for [vim-go](https://github.com/fatih/vim-go#install)
@@ -51,4 +106,3 @@ systemctl start docker.service # This starts the service
 sudo usermod -aG docker cheese # This makes the service work without running `sudo`
 
 ```
-
