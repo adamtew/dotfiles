@@ -65,6 +65,9 @@ install_ohmyzsh() {
     log_info "Installing Oh-My-Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+    # Remove the generated .zshrc so stow can symlink ours
+    rm -f "$HOME/.zshrc"
+
     log_info "Oh-My-Zsh installed successfully"
 }
 
@@ -256,16 +259,16 @@ main() {
     # Step 3: Create required directories
     create_directories
 
-    # Step 4: Stow configuration packages
-    stow_packages
-
-    # Step 5: Install vim and tmux plugins
-    install_vim_plugins
-    install_tmux_plugins
-
-    # Step 6: Install Oh-My-Zsh + plugins
+    # Step 4: Install Oh-My-Zsh + plugins (before stow so it doesn't overwrite our .zshrc)
     install_ohmyzsh
     install_ohmyzsh_plugins
+
+    # Step 5: Stow configuration packages
+    stow_packages
+
+    # Step 6: Install vim and tmux plugins
+    install_vim_plugins
+    install_tmux_plugins
 
     # Step 7: Set default shell to zsh
     if confirm "Set zsh as default shell?" "y"; then
