@@ -59,16 +59,18 @@ done
 install_ohmyzsh() {
     if [ -d "$HOME/.oh-my-zsh" ]; then
         log_info "Oh-My-Zsh already installed"
-        return 0
+    else
+        log_info "Installing Oh-My-Zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        log_info "Oh-My-Zsh installed successfully"
     fi
 
-    log_info "Installing Oh-My-Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-    # Remove the generated .zshrc so stow can symlink ours
-    rm -f "$HOME/.zshrc"
-
-    log_info "Oh-My-Zsh installed successfully"
+    # Remove oh-my-zsh's generated .zshrc (if not already a stow symlink)
+    # so stow can create the proper symlink to our dotfiles version.
+    if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+        log_info "Removing generated .zshrc so stow can link ours..."
+        rm -f "$HOME/.zshrc"
+    fi
 }
 
 # Install Oh-My-Zsh plugins
