@@ -139,7 +139,7 @@ install_claude_cli() {
     fi
 
     log_info "Installing Claude CLI..."
-    curl -fsSL https://claude.ai/install.sh | sh
+    curl -fsSL https://claude.ai/install.sh | bash
 
     log_info "Claude CLI installed"
     log_info "Run 'claude' to authenticate"
