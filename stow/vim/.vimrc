@@ -129,7 +129,6 @@ Plug 'tpope/vim-fugitive' " git management
 " Plug 'chrisbra/csv.vim'
 Plug 'OmniSharp/omnisharp-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'madox2/vim-ai', { 'do': './install.sh' }
 Plug 'vim-scripts/svg.vim'
 call plug#end()
 
