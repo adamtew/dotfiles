@@ -59,13 +59,18 @@ done
 install_ohmyzsh() {
     if [ -d "$HOME/.oh-my-zsh" ]; then
         log_info "Oh-My-Zsh already installed"
-        return 0
+    else
+        log_info "Installing Oh-My-Zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        log_info "Oh-My-Zsh installed successfully"
     fi
 
-    log_info "Installing Oh-My-Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-    log_info "Oh-My-Zsh installed successfully"
+    # Remove oh-my-zsh's generated .zshrc (if not already a stow symlink)
+    # so stow can create the proper symlink to our dotfiles version.
+    if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+        log_info "Removing generated .zshrc so stow can link ours..."
+        rm -f "$HOME/.zshrc"
+    fi
 }
 
 # Install Oh-My-Zsh plugins
@@ -256,16 +261,16 @@ main() {
     # Step 3: Create required directories
     create_directories
 
-    # Step 4: Stow configuration packages
-    stow_packages
-
-    # Step 5: Install vim and tmux plugins
-    install_vim_plugins
-    install_tmux_plugins
-
-    # Step 6: Install Oh-My-Zsh + plugins
+    # Step 4: Install Oh-My-Zsh + plugins (before stow so it doesn't overwrite our .zshrc)
     install_ohmyzsh
     install_ohmyzsh_plugins
+
+    # Step 5: Stow configuration packages
+    stow_packages
+
+    # Step 6: Install vim and tmux plugins
+    install_vim_plugins
+    install_tmux_plugins
 
     # Step 7: Set default shell to zsh
     if confirm "Set zsh as default shell?" "y"; then
