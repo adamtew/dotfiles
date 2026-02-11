@@ -162,7 +162,13 @@ install_tmux_plugins() {
         git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
     fi
 
+    # TPM's install script queries TMUX_PLUGIN_MANAGER_PATH from the tmux
+    # server. Create a temporary session to keep the server alive (tmux 3.4+
+    # exits immediately with no sessions) and set the variable.
+    tmux new-session -d -s _tpm_install 2>/dev/null || true
+    tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/"
     "$tpm_dir/bin/install_plugins"
+    tmux kill-session -t _tpm_install 2>/dev/null || true
     log_info "Tmux plugins installed"
 }
 
