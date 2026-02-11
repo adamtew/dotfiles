@@ -145,6 +145,27 @@ install_claude_cli() {
     log_info "Run 'claude' to authenticate"
 }
 
+# Install vim plugins headlessly
+install_vim_plugins() {
+    log_step "Installing vim plugins..."
+    vim +'PlugInstall --sync' +qall
+    log_info "Vim plugins installed"
+}
+
+# Install tmux plugins headlessly
+install_tmux_plugins() {
+    log_step "Installing tmux plugins..."
+
+    local tpm_dir="$HOME/.tmux/plugins/tpm"
+    if [ ! -d "$tpm_dir" ]; then
+        log_info "Cloning TPM..."
+        git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
+    fi
+
+    "$tpm_dir/bin/install_plugins"
+    log_info "Tmux plugins installed"
+}
+
 # Set zsh as default shell
 set_default_shell() {
     local current_shell
@@ -185,10 +206,8 @@ print_completion() {
     echo ""
     echo "Next steps:"
     echo "  1. Log out and back in (for shell and group changes)"
-    echo "  2. Run 'vim' and execute :PlugInstall for vim plugins"
-    echo "  3. In tmux, press Ctrl+b I to install tmux plugins"
     if ! $SKIP_CLAUDE; then
-        echo "  4. Run 'claude' to authenticate Claude CLI"
+        echo "  2. Run 'claude' to authenticate Claude CLI"
     fi
     echo ""
     echo "Dotfiles location: $DOTFILES_DIR"
@@ -234,16 +253,20 @@ main() {
     # Step 4: Stow configuration packages
     stow_packages
 
-    # Step 5: Install Oh-My-Zsh + plugins
+    # Step 5: Install vim and tmux plugins
+    install_vim_plugins
+    install_tmux_plugins
+
+    # Step 6: Install Oh-My-Zsh + plugins
     install_ohmyzsh
     install_ohmyzsh_plugins
 
-    # Step 6: Set default shell to zsh
+    # Step 7: Set default shell to zsh
     if confirm "Set zsh as default shell?" "y"; then
         set_default_shell
     fi
 
-    # Step 7: SSH key setup
+    # Step 8: SSH key setup
     if ! $SKIP_SSH; then
         if confirm "Set up SSH key?" "y"; then
             setup_ssh
@@ -252,7 +275,7 @@ main() {
         log_info "Skipping SSH setup"
     fi
 
-    # Step 8: Install Claude CLI
+    # Step 9: Install Claude CLI
     if ! $SKIP_CLAUDE; then
         if confirm "Install Claude CLI?" "y"; then
             install_claude_cli
