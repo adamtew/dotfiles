@@ -162,6 +162,9 @@ install_tmux_plugins() {
         git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
     fi
 
+    # TPM's install script queries this from the tmux server; set it so
+    # the script works outside a running tmux session.
+    tmux start-server \; set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/"
     "$tpm_dir/bin/install_plugins"
     log_info "Tmux plugins installed"
 }
