@@ -67,7 +67,7 @@ install_git() {
             done
             ;;
         debian)
-            sudo apt-get update -y
+            sudo apt-get update -y || log_warn "Some repositories failed to update (continuing anyway)"
             sudo apt-get install -y git
             ;;
         *)

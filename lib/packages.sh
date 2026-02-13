@@ -37,7 +37,7 @@ install_debian_packages() {
     fi
 
     log_info "Updating package lists..."
-    sudo apt-get update -y
+    sudo apt-get update -y || log_warn "Some repositories failed to update (continuing anyway)"
 
     log_info "Installing APT packages..."
     # Read packages, ignore comments and empty lines
@@ -106,7 +106,7 @@ install_docker_debian() {
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
     # Install Docker
-    sudo apt-get update -y
+    sudo apt-get update -y || log_warn "Some repositories failed to update (continuing anyway)"
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     # Add user to docker group
@@ -168,7 +168,7 @@ install_gh_cli() {
             sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
             echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | \
                 sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-            sudo apt-get update -y
+            sudo apt-get update -y || log_warn "Some repositories failed to update (continuing anyway)"
             sudo apt-get install -y gh
             ;;
         macos)
